@@ -1,0 +1,38 @@
+<div class="search d-flex py-3">
+    <div class="test mr-auto"></div>
+    <input [(ngModel)]='term' class="form-control w-50 m-auto">
+</div>
+
+<div class="row">
+
+    <div class="col-md-4 py-5">
+
+        <div class="brdr w-25"></div>
+        <h2 class="text-white py-3">Popular {{category}} <br /> Right Now</h2>
+        <p class="text-muted">Most Trending {{category}} this Week</p>
+        <div class="brdr w-100"></div>
+
+    </div>
+    <div *ngFor="let movie of trendingAll|search:term ; let i = index" class="col-lg-2 col-md-3 col-sm-4 my-2">
+
+        <div class="movie position-relative text-white">
+            <a [routerLink]='["/moviedetails",i]'>
+                <img class="img-fluid" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
+                <h6 class="my-2">{{movie.title == undefined ? movie.name:movie.title}}</h6>
+                <p>{{movie.overview|seemore:50}}</p>
+
+                <div class="vote">{{movie.vote_average}}</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div class="pagination w-50 m-auto p-5 d-flex justify-content-center align-items-center">
+    <i (click)='prev()' class="fas text-white fa-2x fa-arrow-alt-circle-left"></i>
+    <div class="pagination-num m-2 p-1 text-white" *ngFor="let pageNumber of pageNumbers; let i =index" id="num-{{i+1}}"
+        (click)='changeNumber(pageNumber)'>
+        {{pageNumber}}</div>
+    <i (click)='next()' class="fas text-white fa-2x fa-arrow-alt-circle-right"></i>
+
+</div>

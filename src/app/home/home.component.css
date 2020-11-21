@@ -1,0 +1,39 @@
+.test
+{
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    clip-path: polygon(100% 5%, 0 30%, 100% 100%);
+
+}
+
+.vote
+{
+    background-color: #24baef;
+    color: #fff;
+    padding: 8px;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.brdr
+{
+    height: 1px;
+    background-color: #a8a8a83d;
+}
+
+.active-num{
+    color: #a8a8a83d !important;
+}
+
+.movie a:hover{
+    color: #a8a8a83d;
+    text-decoration: none;
+}
+
+.pagination i:hover , .pagination-num:hover{
+    color: #a8a8a83d !important;
+    cursor: pointer;
+}
